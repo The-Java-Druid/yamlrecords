@@ -18,12 +18,12 @@ public class RecordConstructor extends Constructor {
     protected Object constructObject(Node node) {
         final Class<?> targetType = typeTags.get(node.getTag());
         if (targetType != null && targetType.isRecord() && node instanceof MappingNode mappingNode) {
-            return constructRecord(targetType, mappingNode);
+            return constructRecord((Class<? extends Record>) targetType, mappingNode);
         }
         return super.constructObject(node);
     }
 
-    private Object constructRecord(Class<?> recordClass, MappingNode node) {
+    private Object constructRecord(Class<?extends Record> recordClass, MappingNode node) {
         final Map<String, Object> values = node.getValue().stream()
             .collect(Collectors.toMap(this::getKey, this::getValue));
         return RecordUtils.instantiateRecord(recordClass, values);
