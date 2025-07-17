@@ -12,6 +12,10 @@ Custom SnakeYAML Constructor and RecordUtils for deserializing Java records.
 - Supports nested records, collections, `Map<String, Record>`
 - Handles `Optional<T>` and primitive coercion
 
+## Latest version
+[![GitHub Release](https://img.shields.io/github/v/release/The-Java-Druid/yamlrecords)](https://github.com/The-Java-Druid/yamlrecords/releases/latest)
+
+
 ## Usage
 ```xml
 <dependency>
