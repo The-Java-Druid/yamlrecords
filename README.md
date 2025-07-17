@@ -9,7 +9,14 @@ Custom SnakeYAML Constructor and RecordUtils for deserializing Java records.
 - Handles `Optional<T>` and primitive coercion
 
 ## Usage
-
+```xml
+<dependency>
+  <groupId>org.yaml.snakeyaml</groupId>
+  <artifactId>yamlrecords</artifactId>
+  <version>1.0.4</version>
+</dependency>
+```
 ```java
 Yaml yaml = new Yaml(new RecordConstructor(Question.class));
 Question q = yaml.load(new FileReader("examples/question.yaml"));
+```
