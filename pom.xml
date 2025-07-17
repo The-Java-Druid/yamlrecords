@@ -9,6 +9,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>16</maven.compiler.release>
     </properties>
+    <scm>
+        <url>https://github.com/The-Java-Druid/yamlrecords</url>
+        <connection>scm:git:${project.scm.url}</connection>
+        <developerConnection>${project.scm.connection}</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
     <dependencies>
         <dependency>
             <groupId>org.yaml</groupId>
@@ -50,4 +56,11 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://github.com/The-Java-Druid/yamlrecords</url>
+        </repository>
+    </distributionManagement>
 </project>

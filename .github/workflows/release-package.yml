@@ -30,6 +30,5 @@ jobs:
         run: mvn clean install -DskipTests=true
       - name: Publish package
         run: mvn --batch-mode deploy -DskipTests=true
-        working-directory: lib/
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
