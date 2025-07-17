@@ -1,0 +1,16 @@
+## 🧪 Example YAML files
+title: "Workout survey"
+category: "WORKOUT"
+answers:
+  - text: "Daily"
+    score: "5"
+    order: "65536"
+    probability: "0.1"
+    weight: "0.3"
+    top: "true"
+  - text: "Sometimes"
+    score: 2
+    order: 65537
+    probability: 0.2
+    weight: 0.4
+    top: false
