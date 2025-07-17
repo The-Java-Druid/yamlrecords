@@ -1,3 +1,7 @@
+[![Java CI with Maven](https://github.com/The-Java-Druid/yamlrecords/actions/workflows/maven.yml/badge.svg)](https://github.com/The-Java-Druid/yamlrecords/actions/workflows/maven.yml)
+
+[![Publish package to GitHub Packages](https://github.com/The-Java-Druid/yamlrecords/actions/workflows/release-package.yml/badge.svg)](https://github.com/The-Java-Druid/yamlrecords/actions/workflows/release-package.yml)
+
 # Record-YAML-Snakeyaml
 
 Custom SnakeYAML Constructor and RecordUtils for deserializing Java records.
