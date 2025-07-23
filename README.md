@@ -21,7 +21,7 @@ Custom SnakeYAML Constructor and RecordUtils for deserializing Java records.
 <dependency>
   <groupId>org.yaml.snakeyaml</groupId>
   <artifactId>yamlrecords</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.6</version>
 </dependency>
 ```
 ```java
