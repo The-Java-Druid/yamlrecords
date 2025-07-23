@@ -17,7 +17,7 @@ public class RecordUtils {
 
     @SuppressWarnings("unchecked")
     public static <T extends Record> T instantiateRecord(Class<T> recordClass, Map<String, Object> values) {
-        if (!recordClass.isRecord()) {
+        if (!isRecord(recordClass)) {
             throw new IllegalArgumentException(recordClass + " is not a record");
         }
 
@@ -51,7 +51,7 @@ public class RecordUtils {
             return Optional.ofNullable(inner);
         }
 
-        if (type.isRecord() && value instanceof Map<?, ?> mapValue) {
+        if (isRecord(type) && value instanceof Map<?, ?> mapValue) {
             return instantiateRecord((Class<? extends Record>)type, (Map<String, Object>) mapValue);
         }
 
@@ -122,5 +122,10 @@ public class RecordUtils {
             }
         }
         throw new IllegalArgumentException("Cannot convert value: " + value + " to type " + targetType.getName());
+    }
+
+    public static boolean isRecord(final Class<?> targetType) {
+        // Ideally we should use Class.isRecord() here. However, Android desugaring always return false.
+        return targetType != null && Record.class.isAssignableFrom(targetType);
     }
 }
