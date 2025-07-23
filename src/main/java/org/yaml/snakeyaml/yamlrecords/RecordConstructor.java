@@ -17,15 +17,10 @@ public class RecordConstructor extends Constructor {
     @Override
     protected Object constructObject(Node node) {
         final Class<?> targetType = typeTags.get(node.getTag());
-        if (isRecord(targetType) && node instanceof MappingNode mappingNode) {
+        if (RecordUtils.isRecord(targetType) && node instanceof MappingNode mappingNode) {
             return constructRecord((Class<? extends Record>) targetType, mappingNode);
         }
         return super.constructObject(node);
-    }
-
-    private static boolean isRecord(final Class<?> targetType) {
-        // Ideally we should use Class.isRecord() here. However, Android desugaring always return false.
-        return targetType != null && Record.class.isAssignableFrom(targetType);
     }
 
     private Object constructRecord(Class<?extends Record> recordClass, MappingNode node) {
