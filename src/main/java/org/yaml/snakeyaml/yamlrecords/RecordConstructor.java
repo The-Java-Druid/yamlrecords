@@ -17,7 +17,7 @@ public class RecordConstructor extends Constructor {
     @Override
     protected Object constructObject(Node node) {
         final Class<?> targetType = typeTags.get(node.getTag());
-        if (targetType != null && targetType.isRecord() && node instanceof MappingNode mappingNode) {
+        if (RecordUtils.isRecord(targetType) && node instanceof MappingNode mappingNode) {
             return constructRecord((Class<? extends Record>) targetType, mappingNode);
         }
         return super.constructObject(node);
@@ -29,16 +29,16 @@ public class RecordConstructor extends Constructor {
         return RecordUtils.instantiateRecord(recordClass, values);
     }
 
-    protected Object getValue(NodeTuple tuple) {
-        return constructObject(tuple.getValueNode());
-    }
-
     private String getKey(NodeTuple tuple) {
         final Object key = constructObject(tuple.getKeyNode());
         if (!(key instanceof String)) {
             throw new YAMLException("Record keys must be strings: " + key);
         }
         return (String) key;
+    }
+
+    private Object getValue(NodeTuple tuple) {
+        return constructObject(tuple.getValueNode());
     }
 
 }
