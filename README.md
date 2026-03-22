@@ -28,3 +28,4 @@ Custom SnakeYAML Constructor and RecordUtils for deserializing Java records.
 Yaml yaml = new Yaml(new RecordConstructor(Question.class));
 Question q = yaml.load(new FileReader("examples/question.yaml"));
 ```
+More details here: https://thejavadruid.blogspot.com/2025/07/making-yaml-java-records-work.html
